@@ -1,0 +1,16 @@
+CREATE TABLE FactEstacionamiento (
+IDEstacionamiento int NOT NULL IDENTITY PRIMARY KEY,
+TarifaBase numeric(20),
+ImpuestoVentas numeric(20),
+HorarioIngreso date,
+HorarioSalida date,
+FeriadoIngreso varchar(45),
+FeriadoSalida varchar(45),
+Minutos numeric(30),
+RestriccionIngreso varchar(20),
+RestriccionSalida varchar(20),
+IndicadorMinutos numeric(20),
+IndicadorHoraEntrada date,
+IndicadorHoraSalida date,
+IndicadorGanancia numeric(20)
+);
