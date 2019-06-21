@@ -1,6 +1,10 @@
-Create Table DimParqueo (
-IDParqueo int NOT NULL IDENTITY PRIMARY KEY,
-Provincia varchar(45),
-Canton varchar(45),
-Distrito varchar(45),
+Create Table DimVehiculo (
+idVeh int NOT NULL IDENTITY PRIMARY KEY,
+DescripcionVehiculo varchar(45),
+NombreFabricante varchar(45),
+NombrePais varchar(45),
+AbreviaturaPais varchar(45),
+Descripcion varchar(45),
+AñoFabricacion numeric(10)
 );
+
