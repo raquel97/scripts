@@ -4,3 +4,10 @@ Provincia varchar(45),
 Canton varchar(45),
 Distrito varchar(45),
 );
+
+
+INSERT INTO DimParqueo
+SELECT Provincia.Descripcion, Canton.Descripcion, Distrito.Descripcion FROM Distrito, Provincia, Canton
+wHERE Distrito.IDProvincia = Canton.IDProvincia and Canton.IDProvincia = Provincia.IDProvincia
+
+select * from DimParqueo;
