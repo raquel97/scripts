@@ -8,3 +8,11 @@ Descripcion varchar(45),
 AñoFabricacion numeric(10)
 );
 
+
+INSERT INTO DimVehiculo
+SELECT TipoVehiculo.Descripcion, Fabricante.NombreFabricante, Pais.NombrePais, Pais.AbreviaturaPais, Continente.Descripcion, Vehiculo.Ano
+from TipoVehiculo, Fabricante, Pais, RegionContinente, Continente, Vehiculo
+WHERE Continente.IDContinente = RegionContinente.IDContinente and RegionContinente.IDRegionContinente = Pais.IDRegionContinente and Pais.IDPais = Fabricante.IDPais 
+and Vehiculo.IDFabricante = Fabricante.IDFabricante and TipoVehiculo.IDTipoVehiculo= Vehiculo.IDTipoVehiculo
+
+select * from DimVehiculo;
