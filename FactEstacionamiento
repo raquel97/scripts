@@ -1,16 +1,15 @@
 CREATE TABLE FactEstacionamiento (
-IDEstacionamiento int NOT NULL IDENTITY PRIMARY KEY,
-TarifaBase numeric(20),
-ImpuestoVentas numeric(20),
-HorarioIngreso date,
-HorarioSalida date,
-FeriadoIngreso varchar(45),
-FeriadoSalida varchar(45),
-Minutos numeric(30),
-RestriccionIngreso varchar(20),
-RestriccionSalida varchar(20),
-IndicadorMinutos numeric(20),
-IndicadorHoraEntrada date,
-IndicadorHoraSalida date,
-IndicadorGanancia numeric(20)
-);
+TarifaBase int,
+Ganancia int,
+Mantenimiento int,
+ImpuestoVenta int,
+Total int, 
+Ingreso varchar(30),
+Salida varchar(30),
+Estadía varchar(30),
+RestriccionEntrada varchar(30),
+RestriccionSalida varchar(30),
+descripcion varchar(30),
+DiaEntrada varchar(30),
+DiaSalida varchar(30)
+)
