@@ -5,3 +5,24 @@ insert into Estratos VALUES('Año Auto',1985,1994,'De 1985 a 1994')
 insert into Estratos VALUES('Año Auto',1994,2003,'De 1994  a 2003')
 insert into Estratos VALUES('Año Auto',2003,2010,'De 2003  a 2010')
 insert into Estratos VALUES('Año Auto', 2010, 2200, 'De 2010 en adelante')
+
+insert into Estratos VALUES('Minutos',-999,0,'Inválido')
+insert into Estratos VALUES('Minutos',0,30,'De 0 a 30 min')
+insert into Estratos VALUES('Minutos',30,90,'De 30 a 90 min')
+insert into Estratos VALUES('Minutos',90,245,'De 90 a 245 min')
+insert into Estratos VALUES('Minutos',245,600,'De 245 a 600 min')
+insert into Estratos VALUES('Minutos',600,9999,'Más de 600 min')
+
+insert into Estratos VALUES('Restriccion',0,2,'Lunes')
+insert into Estratos VALUES('Restriccion',2,4,'Martes')
+insert into Estratos VALUES('Restriccion',4,6,'Miércoles')
+insert into Estratos VALUES('Restriccion',6,8,'Jueves')
+insert into Estratos VALUES('Restriccion',8,9,'Viernes')
+
+insert into Estratos VALUES('Hora',0,5,'Madrugada')
+insert into Estratos VALUES('Hora',5,12,'Mañana')
+insert into Estratos VALUES('Hora',12,14,'Mediodía')
+insert into Estratos VALUES('Hora',14,19,'Tarde')
+insert into Estratos VALUES('Hora',19,24,'Noche')
+
+
