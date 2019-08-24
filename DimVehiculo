@@ -1,18 +1,24 @@
 Create Table DimVehiculo (
 idVeh int NOT NULL IDENTITY PRIMARY KEY,
-DescripcionVehiculo varchar(45),
+TipoVehiculo varchar(45),
 NombreFabricante varchar(45),
 NombrePais varchar(45),
 AbreviaturaPais varchar(45),
-Descripcion varchar(45),
-AñoFabricacion numeric(10)
+Region varchar(45),
+Continente varchar(45),
+EstratoAño varchar(30)
 );
 
-
+            
 INSERT INTO DimVehiculo
-SELECT TipoVehiculo.Descripcion, Fabricante.NombreFabricante, Pais.NombrePais, Pais.AbreviaturaPais, Continente.Descripcion, Vehiculo.Ano
-from TipoVehiculo, Fabricante, Pais, RegionContinente, Continente, Vehiculo
-WHERE Continente.IDContinente = RegionContinente.IDContinente and RegionContinente.IDRegionContinente = Pais.IDRegionContinente and Pais.IDPais = Fabricante.IDPais 
-and Vehiculo.IDFabricante = Fabricante.IDFabricante and TipoVehiculo.IDTipoVehiculo= Vehiculo.IDTipoVehiculo
+select b.Descripcion as TipoVeh, c.NombreFabricante, D.NombrePais, D.AbreviaturaPais, e.Descripcion as Región, f.Descripcion as Continente, g.descripcion as Estrato from Vehiculo a
+join TipoVehiculo b on a.IDTipoVehiculo = b.IDTipoVehiculo
+join Fabricante c on a.IDFabricante = c.IDFabricante
+join Pais d on c.IDPais = d.IDPais
+JOIN RegionContinente e on d.IDRegionContinente = e.IDRegionContinente
+join Continente f on e.IDContinente = f.IDContinente
+join (select * from Vehiculo a, Estratos b where b.Tipo = 'Año Auto' and a.Ano between b.Minimo and b.maximo) g on a.IDVehiculo = g.IDVehiculo;
+
+
 
 select * from DimVehiculo;
