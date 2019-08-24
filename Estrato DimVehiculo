@@ -1,0 +1,7 @@
+create table Estratos (id INT not null IDENTITY primary key,Tipo varchar(30), Minimo int, maximo int, descripcion varchar(20));
+
+insert into Estratos VALUES('Año Auto',0,1985,'Antes de 1985')
+insert into Estratos VALUES('Año Auto',1985,1994,'De 1985 a 1994')
+insert into Estratos VALUES('Año Auto',1994,2003,'De 1994  a 2003')
+insert into Estratos VALUES('Año Auto',2003,2010,'De 2003  a 2010')
+insert into Estratos VALUES('Año Auto', 2010, 2200, 'De 2010 en adelante')
