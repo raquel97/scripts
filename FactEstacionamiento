@@ -14,20 +14,19 @@ DiaEntrada varchar(30),
 DiaSalida varchar(30)
 )
 
-
 INSERT INTO FactEstacionamiento
-select a.TarifaBase as 'Tarifa Base', a.Ganancia, a.Mantenimiento, a.ImpVentas as 'Impuesto de ventas', a.TotalACobrar as Total,b.descripcion as 'Ingreso', c.descripcion as 'Salida',
-d.descripcion as 'Estadía', SUBSTRING(f.descripcion,1,2) as 'RestriccionEntrada', SUBSTRING(g.descripcion,1,2) as 'RestriccionSalida', 
-h.descripcion, isnull(i.NombreFeriado,'Día no feriado') as 'Día Entrada', isnull(j.NombreFeriado,'Día no feriado') as 'Día Salida'
-from Estacionamiento a 
-join Estratos b on DATEPART(HH,a.FechaHoraIngreso) between b.Minimo and b.maximo and b.Tipo = 'Hora'
-join Estratos c on DATEPART(HH,a.FechaHoraIngreso) between c.Minimo and c.maximo and c.Tipo = 'Hora'
-join Estratos d on DATEDIFF(MI,a.FechaHoraIngreso,a.FechaHoraSalida) between d.Minimo and d.maximo and d.Tipo='Minutos'
-join Vehiculo e on a.IDVehiculo = e.IDVehiculo
-join Estratos f on (select RIGHT(e.Placa,1)) between f.Minimo and f.maximo and f.Tipo ='Restriccion' and CHARINDEX(DATEName(DW,a.FechaHoraIngreso),f.descripcion) >0
-join Estratos g on (select RIGHT(e.Placa,1)) between g.Minimo and g.maximo and g.Tipo='Restriccion' and CHARINDEX(DATEName(DW,a.FechaHoraSalida),g.descripcion) >0
-join Estratos h on convert(int, a.Ganancia,0) between h.Minimo and h.maximo and h.Tipo='Ganancia'
-left join DiasFeriadosAnuales i on DATEPART(DD,a.FechaHoraIngreso) =i.DiaFeriado and DATEPART(MM,a.FechaHoraIngreso) = i.MesFeriado
-left join DiasFeriadosAnuales j on DATEPART(DD,a.FechaHoraIngreso) =j.DiaFeriado and DATEPART(MM,a.FechaHoraIngreso) = j.MesFeriado;
+SELECT a.TarifaBase AS 'Tarifa Base', a.Ganancia, a.Mantenimiento, a.ImpVentas AS 'Impuesto de ventas', a.TotalACobrar AS Total,b.descripcion AS 'Ingreso', c.descripcion as 'Salida',
+d.descripcion AS 'Estadía', SUBSTRING(f.descripcion,1,2) AS 'RestriccionEntrada', SUBSTRING(g.descripcion,1,2) AS 'RestriccionSalida', 
+h.descripcion, isnull(i.NombreFeriado,'Día no feriado') AS 'Día Entrada', isnull(j.NombreFeriado,'Día no feriado') AS 'Día Salida'
+FROM Estacionamiento a 
+join Estratos b ON DATEPART(HH,a.FechaHoraIngreso) between b.Minimo and b.maximo and b.Tipo = 'Hora'
+join Estratos c ON DATEPART(HH,a.FechaHoraIngreso) between c.Minimo and c.maximo and c.Tipo = 'Hora'
+join Estratos d ON DATEDIFF(MI,a.FechaHoraIngreso,a.FechaHoraSalida) between d.Minimo and d.maximo and d.Tipo='Minutos'
+join Vehiculo e ON a.IDVehiculo = e.IDVehiculo
+join Estratos f ON (SELECT RIGHT(e.Placa,1)) between f.Minimo and f.maximo and f.Tipo ='Restriccion' and CHARINDEX(DATEName(DW,a.FechaHoraIngreso),f.descripcion) >0
+join Estratos g ON (SELECT RIGHT(e.Placa,1)) between g.Minimo and g.maximo and g.Tipo='Restriccion' and CHARINDEX(DATEName(DW,a.FechaHoraSalida),g.descripcion) >0
+join Estratos h ON convert(INT, a.Ganancia,0) between h.Minimo and h.maximo and h.Tipo='Ganancia'
+left join DiasFeriadosAnuales i ON DATEPART(DD,a.FechaHoraIngreso) =i.DiaFeriado and DATEPART(MM,a.FechaHoraIngreso) = i.MesFeriado
+left join DiasFeriadosAnuales j ON DATEPART(DD,a.FechaHoraIngreso) =j.DiaFeriado and DATEPART(MM,a.FechaHoraIngreso) = j.MesFeriado;
 
 
