@@ -25,4 +25,10 @@ insert into Estratos VALUES('Hora',12,14,'Mediodía')
 insert into Estratos VALUES('Hora',14,19,'Tarde')
 insert into Estratos VALUES('Hora',19,24,'Noche')
 
+insert into Estratos VALUES('Restriccion',0,1,'Monday')
+insert into Estratos VALUES('Restriccion',2,3,'Tuesday')
+insert into Estratos VALUES('Restriccion',4,5,'Wednesday')
+insert into Estratos VALUES('Restriccion',6,7,'Thursday')
+insert into Estratos VALUES('Restriccion',8,9,'Friday')
+
 
