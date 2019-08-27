@@ -1,3 +1,4 @@
+
 CREATE TABLE FactEstacionamiento (
 TarifaBase int,
 Ganancia int,
@@ -28,5 +29,4 @@ join Estratos g ON (SELECT RIGHT(e.Placa,1)) between g.Minimo and g.maximo and g
 join Estratos h ON convert(INT, a.Ganancia,0) between h.Minimo and h.maximo and h.Tipo='Ganancia'
 left join DiasFeriadosAnuales i ON DATEPART(DD,a.FechaHoraIngreso) =i.DiaFeriado and DATEPART(MM,a.FechaHoraIngreso) = i.MesFeriado
 left join DiasFeriadosAnuales j ON DATEPART(DD,a.FechaHoraIngreso) =j.DiaFeriado and DATEPART(MM,a.FechaHoraIngreso) = j.MesFeriado;
-
 
